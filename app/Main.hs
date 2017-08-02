@@ -14,7 +14,7 @@ main = do
     image <- load Autodetect input
     case image of
         Right (rgb :: RGB) -> do
-            writeOut <- save Autodetect output rgb
+            writeOut <- save Autodetect output $ detectEdges rgb
             case writeOut of
                 Nothing -> putStrLn "Image was successfully stored"
                 Just err -> do
